@@ -23,7 +23,14 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         backgroundColor: Colors.blue,
       ),
-      body: ListView.builder(
+      body: notes.isEmpty ?
+          const Center(
+            child: Text('No notes yet. \nTap + to add one.',
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16),
+            ),
+          )
+      : ListView.builder(
         itemCount: notes.length,
         itemBuilder: (context, index) {
           return Card(
