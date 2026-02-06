@@ -26,9 +26,20 @@ class _HomeScreenState extends State<HomeScreen> {
       body: ListView.builder(
         itemCount: notes.length,
         itemBuilder: (context, index) {
-          return ListTile(
-            leading: const Icon(Icons.note),
-            title: Text(notes[index]),
+          return Card(
+            margin: const EdgeInsets.symmetric(horizontal: 10,
+            vertical: 5),
+            child: ListTile(
+              leading: const Icon(Icons.note),
+              title: Text(notes[index]),
+              trailing: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      notes.removeAt(index);
+                    });
+                  }
+                  ,icon: const Icon(Icons.delete, color: Colors.red)),
+            ),
           );
         },
       ),
